@@ -6,7 +6,9 @@
 # one of the great things about this, is that you do not mess with the original data; ever.
 #first you need to get the data -- type in file = "da...then it will come up with options
 #make sure to say if there is a header, and what is seperating the bits of data
-gapminder <- read.table(file = "20160123_swcr_data/gapminder-FiveYearData.csv", 
+
+file = "gapminder-FiveYearData.csv"
+gapminder <- read.table(file = "gapminder-FiveYearData.csv", 
                         header = TRUE, 
                         sep =",")
                         #stringsAsFactors = FALSE
@@ -30,7 +32,7 @@ y <- x * 2
 z <- x + y
 #
 #Adding a column to the dataset + pulling data from another column and rounding it to nearest million
-gapminder <- read.table(file = "20160123_swcr_data/gapminder-FiveYearData.csv", 
+gapminder <- read.table(file = "gapminder-FiveYearData.csv", 
                         header = TRUE, 
                         sep =",")
 gapminder <- cbind(gapminder, PopulationMillion = round(gapminder$pop / 1000000, 0))
