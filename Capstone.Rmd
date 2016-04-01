@@ -13,7 +13,7 @@ library(knitr)
 library(ggplot2)
 gapminder.in <- read.csv("gapminder-FiveYearData.csv",
                          header = TRUE) %>%
-filter(country %in% c("Australia", "China", "Chile", "Argentina"))
+filter(country %in% c("Australia", "China", "Chile"))
 kable(gapminder.in)
 ```
 
@@ -26,6 +26,17 @@ plot.1
 ```
 
 Look. the GDP increases. Genius.
+
+```{r, echo=FALSE, message=FALSE}
+dt %>% rowwise() %>% 
+    transmute(Country, lifeExp,
+     AVG = mean(c(lifeExp), na.rm=TRUE),
+     MIN = min (c(lifeExp), na.rm=TRUE),
+     MAX = max (c(lifeExp), na.rm=TRUE),
+     SUM = sum (c(lifeExp), na.rm=TRUE),
+     NAcnt= sum(is.na(c(lifeExp))))
+)
+```
 
 Now for some summaries:
 
